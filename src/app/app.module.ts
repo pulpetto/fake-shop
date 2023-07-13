@@ -8,9 +8,19 @@ import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Angular Material
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+
 @NgModule({
     declarations: [AppComponent, HeaderComponent, HomeComponent, CartComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSelectModule,
+        MatOptionModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
