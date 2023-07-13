@@ -1,5 +1,18 @@
-<mat-select [(value)]="selectedOption">
-    <mat-option value="Default">Default</mat-option>
-    <mat-option value="Option 1">Option 1</mat-option>
-    <mat-option value="Option 2">Option 2</mat-option>
-</mat-select>
+<div class="w-64">
+    <mat-select [(value)]="sortingOption">
+        <mat-option value="Ascending">Ascending</mat-option>
+        <mat-option value="Descending">Descending</mat-option>
+    </mat-select>
+
+    <mat-select [(value)]="filteringOption" multiple>
+        <mat-option value="---------">---------</mat-option>
+        <mat-option value="---------">---------</mat-option>
+        <mat-option value="---------">---------</mat-option>
+        <mat-option value="---------">---------</mat-option>
+    </mat-select>
+
+    <mat-select [(value)]="layoutOption">
+        <mat-option value="Ascending">Ascending</mat-option>
+        <mat-option value="Descending">Descending</mat-option>
+    </mat-select>
+</div>

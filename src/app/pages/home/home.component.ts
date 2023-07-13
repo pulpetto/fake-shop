@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-    selectedOption: string = 'Default';
+    sortingOption: string = 'Ascending';
+
+    // if array empty show all
+    filteringOption: string[] = [];
+
+    layoutOption: string = 'Ascending';
 }
