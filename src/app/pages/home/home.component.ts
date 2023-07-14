@@ -6,11 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-    // sortingOption: string = 'Ascending';
-    // // if array empty show all
-    // filteringOption: string[] = [];
-    // layoutOption: string = '4-col';
-
+    // sorting
     options: { label: string; checked: boolean }[] = [
         { label: 'Ascending', checked: true },
         { label: 'Descending', checked: false },
@@ -18,12 +14,13 @@ export class HomeComponent {
     selectedOption: string = '';
     isListVisible: boolean = false;
 
-    toggleList() {
+    toggleSortingList(): void {
         this.isListVisible = !this.isListVisible;
     }
 
     selectOption(option: { label: string; checked: boolean }) {
         this.options.forEach((opt) => {
+            // opt.clicked === option.clicked
             if (opt === option) {
                 opt.checked = true;
                 this.selectedOption = opt.label;
@@ -33,5 +30,13 @@ export class HomeComponent {
         });
     }
 
-    // click sorting toggle borderblck
+    // filtering
+    toggleFilteringList(): void {
+        this.isListVisible = !this.isListVisible;
+    }
+
+    // layout
+    toggleLayoutList(): void {
+        this.isListVisible = !this.isListVisible;
+    }
 }
