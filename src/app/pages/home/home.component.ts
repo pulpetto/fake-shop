@@ -11,7 +11,7 @@ export class HomeComponent {
         { label: 'Ascending', checked: true },
         { label: 'Descending', checked: false },
     ];
-    selectedOption: string = '';
+    selectedOption: string = 'Ascending';
     isListVisible: boolean = false;
 
     toggleSortingList(): void {
@@ -20,8 +20,12 @@ export class HomeComponent {
 
     selectOption(option: { label: string; checked: boolean }) {
         this.options.forEach((opt) => {
-            // opt.clicked === option.clicked
-            if (opt === option) {
+            if (
+                option.checked === true &&
+                option.label === this.selectedOption
+            ) {
+                return;
+            } else if (opt === option) {
                 opt.checked = true;
                 this.selectedOption = opt.label;
             } else {
