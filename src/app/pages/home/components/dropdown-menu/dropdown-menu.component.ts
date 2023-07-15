@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-dropdown-menu',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./dropdown-menu.component.css'],
 })
 export class DropdownMenuComponent {
-    // sorting
+    @Input() listName: string = '';
+
     options: { label: string; checked: boolean }[] = [
         { label: 'Ascending', checked: true },
         { label: 'Descending', checked: false },
@@ -14,7 +15,7 @@ export class DropdownMenuComponent {
     selectedOption: string = '';
     isListVisible: boolean = false;
 
-    toggleSortingList(): void {
+    toggleList(): void {
         this.isListVisible = !this.isListVisible;
     }
 
@@ -27,15 +28,5 @@ export class DropdownMenuComponent {
                 opt.checked = false;
             }
         });
-    }
-
-    // filtering
-    toggleFilteringList(): void {
-        this.isListVisible = !this.isListVisible;
-    }
-
-    // layout
-    toggleLayoutList(): void {
-        this.isListVisible = !this.isListVisible;
     }
 }
