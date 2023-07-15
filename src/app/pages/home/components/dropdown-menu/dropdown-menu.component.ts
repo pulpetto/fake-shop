@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class DropdownMenuComponent {
     @Input() listName: string = '';
     @Input() options: { label: string; checked: boolean }[] = [];
+    @Input() multipleOptions: boolean = false;
 
     selectedOption: string = '';
     isListVisible: boolean = false;
@@ -17,16 +18,18 @@ export class DropdownMenuComponent {
     }
 
     selectOption(option: { label: string; checked: boolean }, e: any) {
-        if (option.checked) {
-            e.preventDefault();
-            return;
+        if (!this.multipleOptions) {
+            if (option.checked) {
+                e.preventDefault();
+                return;
+            }
         }
 
         this.options.forEach((opt) => {
             if (opt === option) {
                 opt.checked = true;
                 this.selectedOption = opt.label;
-            } else {
+            } else if (!this.multipleOptions) {
                 opt.checked = false;
             }
         });

@@ -5,14 +5,17 @@
         <app-dropdown-menu
             [listName]="'Sort'"
             [options]="sortingOptions"
+            [multipleOptions]="false"
         ></app-dropdown-menu>
         <app-dropdown-menu
             [listName]="'Filter'"
             [options]="filteringOptions"
+            [multipleOptions]="true"
         ></app-dropdown-menu>
         <app-dropdown-menu
             [listName]="'Layout'"
             [options]="layoutOptions"
+            [multipleOptions]="false"
         ></app-dropdown-menu>
     </div>
     <div class="text-center border-2 border-black"></div>
