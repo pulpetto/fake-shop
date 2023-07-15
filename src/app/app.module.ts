@@ -12,9 +12,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { DropdownMenuComponent } from './pages/home/components/dropdown-menu/dropdown-menu.component';
 
 @NgModule({
-    declarations: [AppComponent, HeaderComponent, HomeComponent, CartComponent],
+    declarations: [AppComponent, HeaderComponent, HomeComponent, CartComponent, DropdownMenuComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
