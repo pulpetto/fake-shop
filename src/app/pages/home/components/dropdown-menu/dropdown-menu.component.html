@@ -21,8 +21,9 @@
         </svg>
     </button>
     <ul [hidden]="!isListVisible">
-        <li
+        <label
             *ngFor="let option of options"
+            [for]="option.label"
             class="flex justify-between px-4 py-4 items-center bg-white hover:bg-neutral-200 cursor-pointer"
         >
             <input
@@ -32,9 +33,9 @@
                 (click)="selectOption(option, $event)"
                 class="accent-black cursor-pointer w-4 h-4"
             />
-            <label [for]="option.label" class="cursor-pointer">
+            <div class="cursor-pointer">
                 {{ option.label }}
-            </label>
-        </li>
+            </div>
+        </label>
     </ul>
 </div>
