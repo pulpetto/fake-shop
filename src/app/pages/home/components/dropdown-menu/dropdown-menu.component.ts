@@ -17,22 +17,19 @@ export class DropdownMenuComponent {
     }
 
     selectOption(option: { label: string; checked: boolean }, e: any) {
-        console.log(e.checked);
-        console.log(option.checked);
         if (option.checked) {
-            console.log(option.checked);
-            console.log('option already true');
+            e.preventDefault();
             return;
         }
 
-        // this.options.forEach((opt) => {
-        //     if (opt === option) {
-        //         opt.checked = true;
-        //         this.selectedOption = opt.label;
-        //     } else {
-        //         opt.checked = false;
-        //     }
-        // });
+        this.options.forEach((opt) => {
+            if (opt === option) {
+                opt.checked = true;
+                this.selectedOption = opt.label;
+            } else {
+                opt.checked = false;
+            }
+        });
 
         // if multiple selecets true call diferent function
         // if multiple selecets false call diferent function

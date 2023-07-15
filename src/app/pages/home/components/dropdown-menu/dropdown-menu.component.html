@@ -29,7 +29,7 @@
                 type="checkbox"
                 [id]="option.label"
                 [(ngModel)]="option.checked"
-                (click)="selectOption(option, $event.target)"
+                (click)="selectOption(option, $event)"
                 class="accent-black cursor-pointer w-4 h-4"
             />
             <label [for]="option.label" class="cursor-pointer">
