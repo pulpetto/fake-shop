@@ -23,16 +23,18 @@
     <ul [hidden]="!isListVisible">
         <li
             *ngFor="let option of options"
-            class="flex justify-between px-4 py-4 items-center hover:bg-neutral-200 cursor-pointer"
+            class="flex justify-between px-4 py-4 items-center bg-white hover:bg-neutral-200 cursor-pointer"
         >
             <input
                 type="checkbox"
                 [id]="option.label"
                 [(ngModel)]="option.checked"
-                (click)="selectOption(option)"
+                (click)="selectOption(option, $event.target)"
                 class="accent-black cursor-pointer w-4 h-4"
             />
-            <label [for]="option.label">{{ option.label }}</label>
+            <label [for]="option.label" class="cursor-pointer">
+                {{ option.label }}
+            </label>
         </li>
     </ul>
 </div>

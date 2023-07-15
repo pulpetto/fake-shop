@@ -1,5 +1,19 @@
-<div class="max-w-7xl mx-auto mt-24 flex justify-center items-start gap-28">
-    <app-dropdown-menu [listName]="'Sort'"></app-dropdown-menu>
-    <app-dropdown-menu [listName]="'Filter'"></app-dropdown-menu>
-    <app-dropdown-menu [listName]="'Layout'"></app-dropdown-menu>
+<div class="max-w-7xl mx-auto mt-40">
+    <div
+        class="absolute top-36 left-1/2 -translate-x-1/2 flex justify-center items-start gap-28 mb-12"
+    >
+        <app-dropdown-menu
+            [listName]="'Sort'"
+            [options]="sortingOptions"
+        ></app-dropdown-menu>
+        <app-dropdown-menu
+            [listName]="'Filter'"
+            [options]="filteringOptions"
+        ></app-dropdown-menu>
+        <app-dropdown-menu
+            [listName]="'Layout'"
+            [options]="layoutOptions"
+        ></app-dropdown-menu>
+    </div>
+    <div class="text-center border-2 border-black"></div>
 </div>
