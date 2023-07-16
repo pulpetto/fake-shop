@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+    // MAYBE FOR EACH DROPDOWN-MENU COMPONENT and then access isVisible (ask GPT)
+    // make the property isVisible here for each dropdown, all of 3 into array and then foreach hide dropdown and show on that that was clicked (event emmiter)
     sortingOptions: { label: string; checked: boolean }[] = [
         { label: 'Ascending', checked: true },
         { label: 'Descending', checked: false },

@@ -13,6 +13,7 @@ export class DropdownMenuComponent {
     selectedOption: string = '';
     isListVisible: boolean = false;
 
+    // emmit this
     toggleList(): void {
         this.isListVisible = !this.isListVisible;
     }
