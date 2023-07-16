@@ -33,8 +33,5 @@ export class DropdownMenuComponent {
                 opt.checked = false;
             }
         });
-
-        // if multiple selecets true call diferent function
-        // if multiple selecets false call diferent function
     }
 }
