@@ -1,11 +1,35 @@
-import { Component } from '@angular/core';
+import {
+    Component,
+    AfterViewInit,
+    ViewChildren,
+    QueryList,
+} from '@angular/core';
+import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
+    @ViewChildren(DropdownMenuComponent)
+    dropdownMenus!: QueryList<DropdownMenuComponent>;
+
+    ngAfterViewInit(): void {
+        this.dropdownMenus.forEach((menu, index) => {
+            menu.isOpen.subscribe(() => {
+                this.closeAllMenusExcept(index);
+            });
+        });
+    }
+
+    closeAllMenusExcept(index: number) {
+        this.dropdownMenus.forEach((menu, i) => {
+            if (i !== index) {
+                menu.close();
+            }
+        });
+    }
     // MAYBE FOR EACH DROPDOWN-MENU COMPONENT and then access isVisible (ask GPT)
     // make the property isVisible here for each dropdown, all of 3 into array and then foreach hide dropdown and show on that that was clicked (event emmiter)
     sortingOptions: { label: string; checked: boolean }[] = [
