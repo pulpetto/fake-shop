@@ -18,7 +18,7 @@ export class DropdownMenuComponent {
     @Input() multipleOptions: boolean = false;
 
     @Output() isOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+    //WHY VIEWCHILD
     @ViewChild('menuElement') menuElement!: ElementRef;
 
     selectedOption: string = '';
