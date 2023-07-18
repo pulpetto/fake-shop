@@ -3,6 +3,9 @@ import {
     AfterViewInit,
     ViewChildren,
     QueryList,
+    HostListener,
+    // Output,
+    // EventEmitter,
 } from '@angular/core';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 
@@ -52,4 +55,18 @@ export class HomeComponent implements AfterViewInit {
 
     // emmited event that if if one is opened another are closed
     // control state if they are opened (isVisible) | maybe use foreach
+
+    @HostListener('document:click', ['$event'])
+    onClickOutside(event: MouseEvent) {
+        if (!this.isClickInsideDropdownMenu(event)) {
+            this.dropdownMenus.forEach((menu) => menu.close());
+        }
+    }
+
+    private isClickInsideDropdownMenu(event: MouseEvent): boolean {
+        return this.dropdownMenus.some(
+            (menu) =>
+                menu.menuElement?.nativeElement?.contains(event.target) || false
+        );
+    }
 }

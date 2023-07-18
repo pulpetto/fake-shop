@@ -1,4 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    Input,
+    Output,
+    EventEmitter,
+    ViewChild,
+    ElementRef,
+} from '@angular/core';
 
 @Component({
     selector: 'app-dropdown-menu',
@@ -12,8 +19,11 @@ export class DropdownMenuComponent {
 
     @Output() isOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+    @ViewChild('menuElement') menuElement!: ElementRef;
+
     selectedOption: string = '';
     isListVisible: boolean = false;
+    elementRef: any;
 
     // emmit this
     toggleList(): void {
