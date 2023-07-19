@@ -4,8 +4,6 @@ import {
     ViewChildren,
     QueryList,
     HostListener,
-    // Output,
-    // EventEmitter,
 } from '@angular/core';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 
@@ -33,8 +31,7 @@ export class HomeComponent implements AfterViewInit {
             }
         });
     }
-    // MAYBE FOR EACH DROPDOWN-MENU COMPONENT and then access isVisible (ask GPT)
-    // make the property isVisible here for each dropdown, all of 3 into array and then foreach hide dropdown and show on that that was clicked (event emmiter)
+
     sortingOptions: { label: string; checked: boolean }[] = [
         { label: 'Ascending', checked: true },
         { label: 'Descending', checked: false },
@@ -52,9 +49,6 @@ export class HomeComponent implements AfterViewInit {
         { label: '3 columns', checked: false },
         { label: '2 columns', checked: false },
     ];
-
-    // emmited event that if if one is opened another are closed
-    // control state if they are opened (isVisible) | maybe use foreach
 
     @HostListener('document:click', ['$event'])
     onClickOutside(event: MouseEvent) {

@@ -3,8 +3,8 @@ import {
     Input,
     Output,
     EventEmitter,
-    ViewChild,
     ElementRef,
+    ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -18,14 +18,12 @@ export class DropdownMenuComponent {
     @Input() multipleOptions: boolean = false;
 
     @Output() isOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
-    //WHY VIEWCHILD
+
     @ViewChild('menuElement') menuElement!: ElementRef;
 
     selectedOption: string = '';
     isListVisible: boolean = false;
-    elementRef: any;
 
-    // emmit this
     toggleList(): void {
         this.isListVisible = !this.isListVisible;
         this.isOpen.emit(this.isListVisible);
