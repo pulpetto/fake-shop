@@ -8,6 +8,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+
 // Angular Material
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -16,7 +18,14 @@ import { DropdownMenuComponent } from './pages/home/components/dropdown-menu/dro
 import { ProductComponent } from './pages/home/components/product/product.component';
 
 @NgModule({
-    declarations: [AppComponent, HeaderComponent, HomeComponent, CartComponent, DropdownMenuComponent, ProductComponent],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        HomeComponent,
+        CartComponent,
+        DropdownMenuComponent,
+        ProductComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -24,6 +33,7 @@ import { ProductComponent } from './pages/home/components/product/product.compon
         MatSelectModule,
         MatOptionModule,
         FormsModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
