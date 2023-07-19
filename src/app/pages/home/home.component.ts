@@ -1,18 +1,31 @@
 import {
     Component,
     AfterViewInit,
+    OnInit,
     ViewChildren,
     QueryList,
     HostListener,
 } from '@angular/core';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
+import { ShopService } from 'src/app/services/shop.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
+    products = [];
+
+    // eslint-disable-next-line no-unused-vars
+    constructor(private ShopServiceAPI: ShopService) {}
+
+    ngOnInit() {
+        this.ShopServiceAPI.getAllProducts().subscribe((data: any) => {
+            this.products = data;
+        });
+    }
+
     @ViewChildren(DropdownMenuComponent)
     dropdownMenus!: QueryList<DropdownMenuComponent>;
 
