@@ -3,8 +3,52 @@
     <a routerLink="/home" class="hover:font-medium">Go shopping!</a>
 </div>
 
-<ng-container *ngIf="productsCart.length > 0">
-    <div *ngFor="let productCart of productsCart">
-        <div>{{ productCart.title }}</div>
+<div *ngIf="productsCart.length > 0" class="mt-28 max-w-7xl mx-auto">
+    <!-- maybe use a index of map here if you dont want duplicated (1 index for 1 product type) -->
+    <div
+        *ngFor="let productCart of productsCart"
+        class="flex items-center justify-between mb-6 pb-2 border-b border-black border-solid"
+    >
+        <div class="flex items-center justify-between w-90">
+            <div class="flex items-center gap-8">
+                <div class="w-16 h-16">
+                    <img
+                        [src]="productCart.image"
+                        class="w-full h-full"
+                        [alt]="productCart.description"
+                    />
+                </div>
+                <div class="">{{ productCart.title }}</div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div>{{ productCart.price }}$</div>
+                <div class="flex items-center gap-2 mr-8">
+                    <button>+</button>
+                    <div #quantity>8</div>
+                    <button>-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <div>{{ productCart.price * +quantity.innerText }}$</div>
+            <div class="w-8 h-8 cursor-pointer">
+                <img
+                    src="assets/svgs/trash.svg"
+                    class="w-full h-full"
+                    alt="trash icon"
+                />
+            </div>
+        </div>
     </div>
-</ng-container>
+
+    <div>
+        <button>Continue shopping</button>
+        <!-- ngmodel to property which regularly gets updated of price -->
+        <div>
+            <div>1999$</div>
+            <button>Checkout</button>
+        </div>
+    </div>
+</div>
