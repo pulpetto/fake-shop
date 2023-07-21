@@ -7,6 +7,7 @@
         <div class="text-red-600 text-lg">{{ product.price }}$</div>
         <div class="w-8 h-8 cursor-pointer">
             <img
+                (click)="onProductAdded(product)"
                 src="assets/svgs/cart-icon.svg"
                 class="invert w-full h-full"
                 alt="cart icon"

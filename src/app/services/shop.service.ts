@@ -5,6 +5,17 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root',
 })
 export class ShopService {
+    productsCart: object[] = [];
+
+    addToCart(product: object) {
+        this.productsCart.push(product);
+    }
+
+    getCart() {
+        return this.productsCart;
+    }
+
+    // API //
     private baseUrl = 'https://fakestoreapi.com/';
 
     // eslint-disable-next-line no-unused-vars
