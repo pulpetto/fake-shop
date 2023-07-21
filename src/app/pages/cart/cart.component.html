@@ -1,6 +1,8 @@
-<!-- ngIf cart is empty -->
-<ng-container *ngIf="!productsCart">
-    <div>Your cart is empty!</div>
-    <a routerLink="/home">Go shopping</a>
+<div *ngIf="productsCart.length === 0" class="mt-28 text-center">
+    <div class="text-3xl">Your cart is empty</div>
+    <a routerLink="/home" class="hover:font-medium">Go shopping!</a>
+</div>
+
+<ng-container *ngIf="productsCart.length > 0">
+    <div *ngFor="let productCart of productsCart"></div>
 </ng-container>
-<div *ngFor="let productCart of productsCart"></div>

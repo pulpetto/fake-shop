@@ -12,7 +12,8 @@ export class ProductComponent {
     // eslint-disable-next-line no-unused-vars
     constructor(private shopService: ShopService) {}
 
-    onProductAdded(product: object) {
+    onProductAdded(product: any) {
+        console.log(product);
         this.shopService.addToCart(product);
     }
 }
