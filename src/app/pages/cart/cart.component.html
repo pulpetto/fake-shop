@@ -1,6 +1,8 @@
 <div *ngIf="productsCart.length === 0" class="mt-28 text-center">
     <div class="text-3xl">Your cart is empty</div>
-    <a routerLink="/home" class="hover:font-medium">Go shopping!</a>
+    <a routerLink="/home" class="hover:font-medium hover:underline"
+        >Go shopping!</a
+    >
 </div>
 
 <div *ngIf="productsCart.length > 0" class="mt-28 max-w-7xl mx-auto">
@@ -26,29 +28,37 @@
                 <div class="flex items-center gap-2 mr-8">
                     <button>+</button>
                     <div #quantity>8</div>
-                    <button>-</button>
+                    <button class="text-xl">-</button>
                 </div>
             </div>
         </div>
 
         <div class="flex items-center gap-6">
             <div>{{ productCart.price * +quantity.innerText }}$</div>
-            <div class="w-8 h-8 cursor-pointer">
+            <button
+                class="w-8 h-8 cursor-pointer px-2 py-2 hover:bg-black bg-stone-900 rounded"
+            >
                 <img
-                    src="assets/svgs/trash.svg"
+                    src="assets/svgs/x.svg"
                     class="w-full h-full"
                     alt="trash icon"
                 />
-            </div>
+            </button>
         </div>
     </div>
 
-    <div>
-        <button>Continue shopping</button>
+    <div class="flex justify-between items-center">
+        <a routerLink="/home" class="hover:font-medium hover:underline"
+            >Continue Shopping</a
+        >
         <!-- ngmodel to property which regularly gets updated of price -->
-        <div>
+        <div class="flex items-center gap-6">
             <div>1999$</div>
-            <button>Checkout</button>
+            <button
+                class="px-6 py-2 hover:bg-black text-white rounded bg-stone-900"
+            >
+                Checkout
+            </button>
         </div>
     </div>
 </div>
