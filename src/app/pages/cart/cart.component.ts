@@ -7,7 +7,7 @@ import { ShopService } from 'src/app/services/shop.service';
     styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-    productsCart: object[] = [];
+    productsCart: any[] = [];
 
     // eslint-disable-next-line no-unused-vars
     constructor(private shopService: ShopService) {}

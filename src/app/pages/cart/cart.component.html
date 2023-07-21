@@ -4,5 +4,7 @@
 </div>
 
 <ng-container *ngIf="productsCart.length > 0">
-    <div *ngFor="let productCart of productsCart"></div>
+    <div *ngFor="let productCart of productsCart">
+        <div>{{ productCart.title }}</div>
+    </div>
 </ng-container>
