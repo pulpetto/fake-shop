@@ -13,7 +13,11 @@ export class ProductComponent {
     constructor(private shopService: ShopService) {}
 
     onProductAdded(product: any) {
-        console.log(product);
-        this.shopService.addToCart(product);
+        if (this.shopService.productsCart.includes(product)) {
+            product.quantity++;
+        } else {
+            product.quantity = 1;
+            this.shopService.productsCart.push(product);
+        }
     }
 }

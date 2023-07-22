@@ -31,6 +31,9 @@ export class HomeComponent implements AfterViewInit, OnInit {
     ngOnInit() {
         this.ShopServiceAPI.getAllProducts().subscribe((data: any) => {
             this.products = data;
+            this.products.forEach((product: any) => {
+                product.quantity = 0;
+            });
         });
     }
 
