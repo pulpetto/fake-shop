@@ -32,4 +32,9 @@ export class CartComponent implements OnInit {
             console.log(this.productsCart.length);
         }
     }
+
+    onItemDelete(productCart: any) {
+        const index = this.productsCart.indexOf(productCart);
+        this.productsCart.splice(index, 1);
+    }
 }

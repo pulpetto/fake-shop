@@ -41,6 +41,7 @@
             <!-- round to only be 2digit after comma -->
             <div>{{ productCart.price * +quantity.innerText }}$</div>
             <button
+                (click)="onItemDelete(productCart)"
                 class="w-8 h-8 cursor-pointer px-2 py-2 hover:bg-black bg-stone-900 rounded"
             >
                 <img
