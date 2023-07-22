@@ -15,6 +15,14 @@ import { ShopService } from 'src/app/services/shop.service';
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements AfterViewInit, OnInit {
+    // individual properties
+    gridLayoutClassName = 'grid-cols-4';
+    setLayout(e: string) {
+        this.gridLayoutClassName = e;
+        console.log(e);
+    }
+    // ---------------------
+
     products = [];
 
     // eslint-disable-next-line no-unused-vars

@@ -19,12 +19,13 @@
             [options]="layoutOptions"
             [multipleOptions]="false"
             (isOpen)="closeAllMenusExcept(2)"
+            (gridLayoutClassNameEmit)="setLayout($event)"
         ></app-dropdown-menu>
     </div>
     <div class="text-center border-2 border-black"></div>
-    <!-- <div class="mt-8 grid grid-cols-4 gap-6"></div> -->
     <app-product
-        class="mt-8 grid grid-cols-4 gap-8"
+        #productsContainer
+        [class]="gridLayoutClassName + ' mt-8 grid gap-8'"
         [allProducts]="products"
     ></app-product>
 </div>
