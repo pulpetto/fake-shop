@@ -8,7 +8,6 @@ export class ShopService {
     productsCart: any[] = [];
 
     addToCart(product: any) {
-        // make the price end with ,00 (maybe use pipe)
         this.productsCart.push(product);
     }
 
