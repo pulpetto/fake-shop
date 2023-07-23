@@ -23,7 +23,7 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <div>{{ productCart.price }}$</div>
+                <div>{{ productCart.price | number : ".2-2" }}$</div>
                 <div class="flex items-center gap-2 mr-8">
                     <button (click)="increaseQuantity(productCart)">+</button>
                     <div #quantity>{{ productCart.quantity }}</div>
@@ -39,7 +39,7 @@
 
         <div class="flex items-center gap-6">
             <!-- round to only be 2digit after comma -->
-            <div>{{ productCart.price * +quantity.innerText }}$</div>
+            <div>{{ productCart.price * productCart.quantity }}$</div>
             <button
                 (click)="onItemDelete(productCart)"
                 class="w-8 h-8 cursor-pointer px-2 py-2 hover:bg-black bg-stone-900 rounded"
@@ -57,9 +57,9 @@
         <a routerLink="/home" class="hover:font-medium hover:underline"
             >Continue Shopping</a
         >
-        <!-- ngmodel to property which regularly gets updated of price -->
+        <!-- maybe ngmodel to property which regularly gets updated of price -->
         <div class="flex items-center gap-6">
-            <div>1999$</div>
+            <div>{{ totalPrice | number : ".2-2" }}$</div>
             <button
                 class="px-6 py-2 hover:bg-black text-white rounded bg-stone-900"
             >

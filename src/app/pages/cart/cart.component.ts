@@ -8,17 +8,21 @@ import { ShopService } from 'src/app/services/shop.service';
 })
 export class CartComponent implements OnInit {
     productsCart: any[] = [];
+    totalPrice: number = 0;
 
     // eslint-disable-next-line no-unused-vars
     constructor(private shopService: ShopService) {}
 
     ngOnInit() {
         this.productsCart = this.shopService.getCart();
-        console.log(this.productsCart);
+
+        this.updateTotalPrice();
     }
 
     increaseQuantity(productCart: any) {
         productCart.quantity++;
+
+        this.updateTotalPrice();
     }
 
     decreaseQuantity(productCart: any) {
@@ -28,13 +32,22 @@ export class CartComponent implements OnInit {
             if (index !== -1) {
                 this.productsCart.splice(index, 1);
             }
-
-            console.log(this.productsCart.length);
         }
+
+        this.updateTotalPrice();
     }
 
     onItemDelete(productCart: any) {
         const index = this.productsCart.indexOf(productCart);
         this.productsCart.splice(index, 1);
+
+        this.updateTotalPrice();
+    }
+
+    updateTotalPrice() {
+        this.totalPrice = this.productsCart.reduce(
+            (total, product) => total + product.price * product.quantity,
+            0
+        );
     }
 }
